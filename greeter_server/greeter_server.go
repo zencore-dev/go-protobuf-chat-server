@@ -48,13 +48,12 @@ func NewServer() *ServerImpl {
 
 // Add a message to the store.
 func (s *ServerImpl) CommitMessage(ctx context.Context, in *pb.CommitMessageRequest) (*pb.CommitMessageResponse, error) {
-	log.Printf("Received commit message: %v")
+	log.Printf("Received commit message: %v", in.Message)
 	s.store[in.Message.MessageUuid] = in.Message
 	return &pb.CommitMessageResponse{}, nil
 }
 
 func (s *ServerImpl) ListMessages(ctx context.Context, in *pb.ListMessagesRequest) (*pb.ListMessagesResponse, error) {
-	log.Printf("Received list messages: %v")
 	// return the messages
 	result := pb.ListMessagesResponse{
 		Messages: []*pb.Message{},

@@ -3,6 +3,7 @@ module github.com/zencore/helloworld
 go 1.19
 
 require (
+	github.com/google/go-cmp v0.5.9
 	github.com/stretchr/testify v1.8.2
 	google.golang.org/grpc v1.53.0
 	google.golang.org/protobuf v1.29.1
